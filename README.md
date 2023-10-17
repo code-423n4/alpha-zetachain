@@ -1,4 +1,5 @@
-# ZetaChain: Code4rena Alpha competition
+# ZetaChain: Code4rena Alpha competition, Phase 1
+## Auditor acceleration
 
 - Total Prize Pool: $50,000 USDC
   - Phase 1 awards: $10,000 USDC
