@@ -21,7 +21,18 @@ This repo is intended to be forked by each team participating in ZetaChain's Alp
 
 **Note:** Alpha repos should be made public following the competition; threats repos should be managed with great caution. 
 
+# ZetaChain Overview
+
+[ ⭐️ SPONSORS: add info here ]
+
+*Please include the following:*
+- [ ] A repo to review
+- [ ] A description of how you're currently using Cosmos-SDK
+- [ ] Any specific things the auditors should pay close attention to
+
 ## Resources
+
+*Please include links to resources or audits you want teams to be aware of in creating guides to onboard wardens.*
 
 - **Documentation:**
 - **Website:**
