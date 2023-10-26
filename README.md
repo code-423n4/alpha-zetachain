@@ -21,6 +21,15 @@ This repo is intended to be forked by each team participating in ZetaChain's Alp
 
 **Note:** Alpha repos should be made public following the competition; threats repos should be managed with great caution. 
 
+# Links
+
+- [ZetaChain on Github](https://github.com/zeta-chain)
+- Architecture documentation: [https://www.zetachain.com/docs/architecture/overview/](https://www.zetachain.com/docs/architecture/overview/)
+- [Whitepaper](https://www.zetachain.com/whitepaper.pdf)
+- [ZetaChain website](https://www.zetachain.com/)
+- [Discord](https://discord.gg/zetachain)
+
+
 # ZetaChain Overview
 
 ## Usage of Cosmos SDK
@@ -235,11 +244,3 @@ connector and ERC20 custody contract addresses, etc. | observer |
 **Source Code**
 
 - Example of check for permission: [https://github.com/zeta-chain/node/blob/9028fe3e5ba17d01d7cb58e23594d7e559718278/x/fungible/keeper/msg_server_deploy_fungible_coin_zrc20.go#L40](https://github.com/zeta-chain/node/blob/9028fe3e5ba17d01d7cb58e23594d7e559718278/x/fungible/keeper/msg_server_deploy_fungible_coin_zrc20.go#L40)
-
-# Links
-
-- [ZetaChain on Github](https://github.com/zeta-chain)
-- Architecture documentation: [https://www.zetachain.com/docs/architecture/overview/](https://www.zetachain.com/docs/architecture/overview/)
-- [Whitepaper](https://www.zetachain.com/whitepaper.pdf)
-- [ZetaChain website](https://www.zetachain.com/)
-- [Discord](https://discord.gg/zetachain)
