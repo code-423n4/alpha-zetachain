@@ -1,4 +1,5 @@
 # ZetaChain: Code4rena Alpha competition, Phase 1
+
 ## Auditor acceleration
 
 - Total Prize Pool: $50,000 USDC
@@ -6,7 +7,7 @@
   - Phase 2 awards: $30,000 USDC
   - Judge awards: $10,000 USDC
 - [Guidelines for C4 Alpha competitions](https://docs.google.com/document/d/1s7-giM3kGbIeJv789ooJ8C7hXhoQBkUgOHyYnjDPw6s/edit?usp=sharing)
-- Starts October 27, 2023 20:00 UTC 
+- Starts October 27, 2023 20:00 UTC
 - Phase 1 ends / Phase 2 begins October 30, 2023 20:00 UTC
 - Phase 2 ends November 6, 2023 20:00 UTC
 
@@ -19,7 +20,7 @@ This repo is intended to be forked by each team participating in ZetaChain's Alp
 - [ ] Create a folder within your repo that includes your team name (or team members’ names, with captain's username first, e.g. `horsefacts-bytes032-Trust`). Create an index readme.md file in that folder that outlines the contents of the folder and attributes specific contributions by team members.
 - [ ] At the conclusion of Phase 1, open a PR in this (C4) repo to share your submissions
 
-**Note:** Alpha repos should be made public following the competition; threats repos should be managed with great caution. 
+**Note:** Alpha repos should be made public following the competition; threats repos should be managed with great caution.
 
 # Links
 
@@ -29,12 +30,11 @@ This repo is intended to be forked by each team participating in ZetaChain's Alp
 - [ZetaChain website](https://www.zetachain.com/)
 - [Discord](https://discord.gg/zetachain)
 
-
 # ZetaChain Overview
 
 ## Usage of Cosmos SDK
 
-ZetaChain is a EVM compatible blockchain based on Cosmos SDK. The blockchain imports the default Cosmos SDK module for DPoS chains: 
+ZetaChain is a EVM compatible blockchain based on Cosmos SDK. The blockchain imports the default Cosmos SDK module for DPoS chains:
 
 - `auth`
 - `bank`
@@ -58,7 +58,7 @@ The blockchain is composed of 4 custom modules: `crosschain`, `fungible`, `obser
 
 The ZetaChain EVM is called zEVM.
 
-The `bank` module is used to manage the supply of ZETA tokens. Every other assets in the protocol like foreign coins are represented through smart contracts in the zEVM. 
+The `bank` module is used to manage the supply of ZETA tokens. Every other assets in the protocol like foreign coins are represented through smart contracts in the zEVM.
 
 ### SDK modules
 
@@ -88,7 +88,7 @@ The `fungible` module facilitates the deployment of fungible tokens of connect
 
 Foreign coins are represented as ZRC20 tokens on ZetaChain.
 
-When a foreign coin is deployed on ZetaChain, a ZRC20 contract is deployed, a pool is created, liquidity is added to the pool, and the foreign coin is added to the list of foreign coins in the module's state. This is a manual process trigger by an admin group. 
+When a foreign coin is deployed on ZetaChain, a ZRC20 contract is deployed, a pool is created, liquidity is added to the pool, and the foreign coin is added to the list of foreign coins in the module's state. This is a manual process trigger by an admin group.
 
 The module contains the logic for:
 
@@ -125,7 +125,7 @@ Protocol contracts can be founds in: [protocol-contracts/contracts/zevm at main 
 
 #### Diagram
 
-![Untitled](Code4rena%20Documentation%20a2189b7da78042b3af9d67d2233444e4/Untitled.png)
+![Diagram](images/modules.png)
 
 ## Important Areas
 
@@ -147,7 +147,7 @@ More information on inbound tx observation can be found at [ZetaDocs (zetachain.
 
 Observers watch ZetaChain for pending outbound transactions. To process a pending outbound transactions observers enter into a TSS keysign ceremony to sign the transaction, and then broadcast the signed transaction to the connected blockchains.
 
-****Observed Outbound****
+\***\*Observed Outbound\*\***
 
 Observers watch connected blockchains for the broadcasted outbound transactions. Once a transaction is "confirmed" (or "mined") on a connected blockchains, observers vote on ZetaChain by sending a `VoteOnObservedOutboundTx` message.
 
@@ -171,7 +171,7 @@ Source code → [node/x/crosschain/keeper/gas_payment.go at develop · zeta-chai
 
 #### Gas Price Increase for outbound tx
 
-A  mechanism allows increasing the gas price used for an outbound tx on an external chain if it is not being mined
+A mechanism allows increasing the gas price used for an outbound tx on an external chain if it is not being mined
 
 - When outbound txs are mined, part of the remaining fees (surplus gasUsed/gasLimit) are sent to a “gas stability pool” → [https://github.com/zeta-chain/node/blob/d41cf7f1af4d2cac20bec191b980d69d9d315348/x/crosschain/keeper/keeper_cross_chain_tx_vote_outbound_tx.go#L132](https://github.com/zeta-chain/node/blob/d41cf7f1af4d2cac20bec191b980d69d9d315348/x/crosschain/keeper/keeper_cross_chain_tx_vote_outbound_tx.go#L132)
 - Every n blocks, every pending outbound txs are iterated, if pending for too long, the gas price for the outbound tx is increase and, funds from the gas stability pool is used to pay for the increase → [https://github.com/zeta-chain/node/blob/d41cf7f1af4d2cac20bec191b980d69d9d315348/x/crosschain/keeper/abci.go#L21](https://github.com/zeta-chain/node/blob/d41cf7f1af4d2cac20bec191b980d69d9d315348/x/crosschain/keeper/abci.go#L21)
@@ -201,45 +201,47 @@ A new architecture has been developed in order to validate txs from external cha
 ### 3 - Permissions and Admin Groups
 
 - Certain action in the blockchain can only be executed by a specific address (multi-sig). There are two admin groups:
-    - Group1
-        - Emergency actions: halt a workflow of the blockchain in case of emergency
-        - Example: freeze a ZRC20 if a vulnerabilty is found for this token
-        - Rapidity over security: represented by an address that would require a single signature from the multisig
-        - Should not concern action that can be financially exploitable
-    - Group2
-        - Operational: updating parameters influencing logic of the blockchain
-        - Example: updating the system contract
-        - Security over rapidity: requires several signature
+  - Group1
+    - Emergency actions: halt a workflow of the blockchain in case of emergency
+    - Example: freeze a ZRC20 if a vulnerabilty is found for this token
+    - Rapidity over security: represented by an address that would require a single signature from the multisig
+    - Should not concern action that can be financially exploitable
+  - Group2
+    - Operational: updating parameters influencing logic of the blockchain
+    - Example: updating the system contract
+    - Security over rapidity: requires several signature
 
 **Permissions Table**
 
-| Message | Group | Description | Module |
-| --- | --- | --- | --- |
-| MsgAddToOutTxTracker | 1 | Add an outbound tx to the onchain tx tracked (msg to be removed) | crosschain |
-| MsgRemoveFromOutTxTracker | 1 | Remove an outbound tx from the onchain tx tracked (msg to be removed) | crosschain |
-| MsgAddToInTxTracker | 1 | Add an inbound tx to the onchain tx tracked (msg to be removed) | crosschain |
-| MsgUpdateTssAddress | 2 | Update the address of the TSS | crosschain |
-| MsgMigrateTssFunds | 2 | Send a tx to an external chain to migrate tss funds from one address to another one | crosschain |
-| MsgWhitelistERC20 | 1 | Whitelist an ERC20 on an external chain so a zrc20 can be created | crosschain |
-| MsgUpdateZRC20PausedStatus - Pause | 1 | Pause interaction with a provided list of zrc20 - no transfer or withdraw can be processed with the paused zrc20 | fungible |
-| MsgUpdateZRC20PausedStatus - Unpause | 2 | Unpause a paused zrc20 | fungible |
-|  |  |  |  |
-| MsgDeployFungibleCoinZRC20 | 2 | Deploy a new ZRC20 (gas token or ERC20) | fungible |
-| MsgRemoveForeignCoin | 2 | Remove a foreign coin object from ZetaChain.
-The ZRC20 will still exist on ZetaChain and can still be traded but cross-chain capabilities will no longer be available for it | fungible |
-| MsgUpdateZRC20LiquidityCap | 2 | Set or remove a liquidity cap for a zrc20, the maximum supply that can exist for the ZRC20 on ZetaChain | fungible |
-| MsgUpdateContractBytecode | 2 | Update the bytecode of a ZRC20 or a system contract | fungible |
-| MsgUpdateSystemContract | 2 | Update the address of the system contract | fungible |
-| MsgUpdateZRC20WithdrawFee | 2 | Update the withdraw protocol fees for a ZRC20.
-A flat fee paid for each withdraw.  | fungible |
-| MsgUpdateCoreParams | 2 | Updates core parameters for a specific chain.
+| Message                                                                                                                         | Group    | Description                                                                                                      | Module     |
+| ------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------- | ---------- |
+| MsgAddToOutTxTracker                                                                                                            | 1        | Add an outbound tx to the onchain tx tracked (msg to be removed)                                                 | crosschain |
+| MsgRemoveFromOutTxTracker                                                                                                       | 1        | Remove an outbound tx from the onchain tx tracked (msg to be removed)                                            | crosschain |
+| MsgAddToInTxTracker                                                                                                             | 1        | Add an inbound tx to the onchain tx tracked (msg to be removed)                                                  | crosschain |
+| MsgUpdateTssAddress                                                                                                             | 2        | Update the address of the TSS                                                                                    | crosschain |
+| MsgMigrateTssFunds                                                                                                              | 2        | Send a tx to an external chain to migrate tss funds from one address to another one                              | crosschain |
+| MsgWhitelistERC20                                                                                                               | 1        | Whitelist an ERC20 on an external chain so a zrc20 can be created                                                | crosschain |
+| MsgUpdateZRC20PausedStatus - Pause                                                                                              | 1        | Pause interaction with a provided list of zrc20 - no transfer or withdraw can be processed with the paused zrc20 | fungible   |
+| MsgUpdateZRC20PausedStatus - Unpause                                                                                            | 2        | Unpause a paused zrc20                                                                                           | fungible   |
+|                                                                                                                                 |          |                                                                                                                  |            |
+| MsgDeployFungibleCoinZRC20                                                                                                      | 2        | Deploy a new ZRC20 (gas token or ERC20)                                                                          | fungible   |
+| MsgRemoveForeignCoin                                                                                                            | 2        | Remove a foreign coin object from ZetaChain.                                                                     |
+| The ZRC20 will still exist on ZetaChain and can still be traded but cross-chain capabilities will no longer be available for it | fungible |
+| MsgUpdateZRC20LiquidityCap                                                                                                      | 2        | Set or remove a liquidity cap for a zrc20, the maximum supply that can exist for the ZRC20 on ZetaChain          | fungible   |
+| MsgUpdateContractBytecode                                                                                                       | 2        | Update the bytecode of a ZRC20 or a system contract                                                              | fungible   |
+| MsgUpdateSystemContract                                                                                                         | 2        | Update the address of the system contract                                                                        | fungible   |
+| MsgUpdateZRC20WithdrawFee                                                                                                       | 2        | Update the withdraw protocol fees for a ZRC20.                                                                   |
+| A flat fee paid for each withdraw.                                                                                              | fungible |
+| MsgUpdateCoreParams                                                                                                             | 2        | Updates core parameters for a specific chain.                                                                    |
+
 Core parameters include: confirmation count, outbound transaction schedule interval, ZETA token,
 connector and ERC20 custody contract addresses, etc. | observer |
 | MsgUpdateCrosschainFlags - Disabling outbounds/inbounds | 1 | Disable inbound txs or outbound txs to be observed on ZetaChain | observer |
 | MsgUpdateCrosschainFlags - Other actions | 2 | Other actions for crosschain flags are:
+
 - Enabling disabled outbound/inbound
 - Changing parameters for gas price increase mechanism | observer |
-| MsgUpdateKeygen | 1 | Update the block height of the keygen and sets the status to PendingKeygen | observer |
+  | MsgUpdateKeygen | 1 | Update the block height of the keygen and sets the status to PendingKeygen | observer |
 
 **Source Code**
 
