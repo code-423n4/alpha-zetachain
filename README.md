@@ -232,7 +232,7 @@ A new architecture has been developed in order to validate txs from external cha
 | MsgUpdateCoreParams                                     | 2     | Updates core parameters for a specific chain. Core parameters include: confirmation count, outbound transaction schedule interval, ZETA token, connector and ERC20 custody contract addresses, etc. | observer   |
 | MsgUpdateCrosschainFlags - Disabling outbounds/inbounds | 1     | Disable inbound txs or outbound txs to be observed on ZetaChain                                                                                                                                     | observer   |
 | MsgUpdateCrosschainFlags - Other actions                | 2     | Other actions for crosschain flags are: - Enabling disabled outbound/inbound - Changing parameters for gas price increase mechanism                                                                 | observer   |
-| MsgUpdateKeygen                                         | 1     | Update the block height of the keygen and sets the status to PendingKeygen                                                                                                                          | observer   |
+| MsgUpdateKeygen                                         | 1     | Update the block height of the keygen and sets the status to `PendingKeygen`                                                                                                                        | observer   |
 
 **Source Code**
 
