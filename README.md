@@ -16,7 +16,7 @@
 This repo is intended to be forked by each team participating in ZetaChain's Alpha competition. Please follow these steps for your team:
 
 - [ ] Fork this repo to your own private repo within the team captain's Github account
-- [ ] Add the judge and the `c4-audit` user to your repo, for oversight
+- [ ] Add the judges (`0xean` and `dmvt`) and the `c4-audit` user to your repo, for oversight
 - [ ] Create a folder within your repo that includes your team name (or team members’ names, with captain's username first, e.g. `horsefacts-bytes032-Trust`). Create an index readme.md file in that folder that outlines the contents of the folder and attributes specific contributions by team members.
 - [ ] At the conclusion of Phase 1, open a PR in this (C4) repo to share your submissions
 
