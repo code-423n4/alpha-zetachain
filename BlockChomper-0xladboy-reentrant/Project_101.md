@@ -151,8 +151,8 @@ Potential comparisons can also be drawn between Juno (an open-source platform fo
 
 This section is written to achieve the following outcomes:
 
-1. You will have [cloned, compiled, and smoke-tested](https://www.notion.so/Project-101-44d769e6aae4459d85b91ddbba34ae81?pvs=21) the ZetaChain node (`zetacored`) to confirm the development environment is installed correctly
-2. You will have [understood the node’s code structure the descriptions of key elements](https://www.notion.so/Project-101-44d769e6aae4459d85b91ddbba34ae81?pvs=21) of the architecture
+1. You will have [cloned, compiled, and smoke-tested](#setting-up-the-development-environment) the ZetaChain node (`zetacored`) to confirm the development environment is installed correctly
+2. You will have [understood the node’s code structure the descriptions of key elements](#zetachain-architecture-1) of the architecture
 
 > ❗ **How to use this section:**
 > 
@@ -167,7 +167,7 @@ This section is written to achieve the following outcomes:
 2. [Install Docker](https://docs.docker.com/engine/install/)
     - Make sure docker version is ≥ 23 to so [BuildKit](https://docs.docker.com/build/buildkit/) is enabled
         - Otherwise, you can [enable it separately](https://docs.docker.com/build/buildkit/#getting-started:~:text=To%20set%20the,command%2C%20run)
-        - If you’re having an issue trying to [set up the package repository](https://www.notion.so/f7c0f29d18194e2faf01ed2c0e60ddf4?pvs=21) on `apt` -based Linux distributions (like Ubuntu) and you can’t get the “keyring” to update, make sure the directory “/etc/apt/keyrings” exists
+        - If you’re having an issue trying to [set up the package repository](https://docs.docker.com/engine/install/ubuntu/#:~:text=and%20development%20environments.-,Install%20using%20the%20apt%20repository,-Before%20you%20install) on `apt` -based Linux distributions (like Ubuntu) and you can’t get the “keyring” to update, make sure the directory “/etc/apt/keyrings” exists
 3. [Clone the repository and build the testnet](https://github.com/zeta-chain/node#building-the-zetacoredzetaclientd-binaries)
     - Clone the repository at [https://github.com/zeta-chain/node](https://github.com/zeta-chain/node)
     - In the cloned repo, build the testnet with the command:
@@ -206,13 +206,13 @@ At this point you have a full-fledged testnet running locally.  If you’d like 
 
 >❗ **Make sure to read the ZetaChain [Architecture Overview](https://www.zetachain.com/docs/architecture/overview/) for a 10,000ft view of how the major components fit.**
 
-> ❗ **The ZetaChain node is written in Go.  In case readers have little exposure to the language, but are versed in others, they are encouraged to read content from [Resources for the Go language](https://www.notion.so/Resources-for-the-Go-language-91fc1a4c56b84720be19b83667722327?pvs=21)   to quickly get a up to speed on the features and syntax.**
+> ❗ **The ZetaChain node is written in Go.  In case readers have little exposure to the language, but are versed in others, they are encouraged to read content from [Resources for the Go language](#resources-for-the-go-language)   to quickly get a up to speed on the features and syntax.**
 
 ### Key Architecture Patterns
 
 ZetaChain is a [Cosmos SDK project](https://docs.cosmos.network/v0.50/learn/beginner/app-anatomy) at heart. That means it essentially relies on patterns of:
 
-- Composable units of functionality with handlers for updating dedicated parts of state (”[Modules](https://www.notion.so/Project-101-44d769e6aae4459d85b91ddbba34ae81?pvs=21)”)
+- Composable units of functionality with handlers for updating dedicated parts of state (”[Modules](#modules)”)
 - Getters and Setters for each module’s state (”[Keepers](#keepers)”)
 - Access controls for state updates (”[Stores and Object Capabilities](#stores-and-object-capabilities)”)
 - A convention for interfacing with a consensus and networking layer through a lifecycle of events (“[CometBFT](#cometbft)”, ”[ABCI](#abci)”, “[Protobuf](#protobuf)”)
@@ -238,7 +238,7 @@ Each module is comprised of:
 3. [`gRPC` services](https://docs.cosmos.network/main/learn/beginner/app-anatomy#grpc-query-services)
     - These provide an external interface to retrieve app state from [RPC calls](https://docs.cosmos.network/v0.50/learn/advanced/grpc_rest)
     - handle RPC calls with service methods defined in Protobuf files
-4. A [Keeper](https://www.notion.so/Project-101-44d769e6aae4459d85b91ddbba34ae81?pvs=21), which provides getters/setters for module state
+4. A [Keeper](#keepers), which provides getters/setters for module state
     - The Keeper provides [some guarantees](https://docs.cosmos.network/v0.50/learn/advanced/ocap) about who can access their state
 5. [CLI commands](https://docs.cosmos.network/main/learn/beginner/app-anatomy#command-line-grpc-services-and-rest-interfaces)
     - Allow clients to query or transact with full nodes from the command line
