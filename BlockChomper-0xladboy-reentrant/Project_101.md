@@ -1,5 +1,7 @@
 # Project 101
 
+![Untitled](Project%20101%2044d769e6aae4459d85b91ddbba34ae81/Untitled.png)
+
 ## Table of Contents
 
   * [Introduction](#introduction)
@@ -27,8 +29,6 @@
     + [Queries](#queries)
   * [Essential Folder Breakdown](#essential-folder-breakdown)
   * [Resources for the Go language](#resources-for-the-go-language)
-
-![Untitled](Project%20101%2044d769e6aae4459d85b91ddbba34ae81/Untitled.png)
 
 ## Introduction
 
