@@ -8,7 +8,7 @@ The [Project 101 primer](Project_101.md) will give an already professional and c
 
 ## Testing 101
 
-The Testing 101 primer will give a competent security researcher a crucial head start on testing the ZetaChain project. We deep dive into Validator Node testing considerations and then go on to outline a robust wider testing strategy. We also outline potential attack vectors and list relevant and valuable resources available to wardens.
+The [Testing 101 primer](Testing_101_+_Best_Resources.md) will give a competent security researcher a crucial head start on testing the ZetaChain project. We deep dive into Validator Node testing considerations and then go on to outline a robust wider testing strategy. We also outline potential attack vectors and list relevant and valuable resources available to wardens.
 
 This Alpha content is crafted one of the top security researchers active in Code4rena (0xladboy) and researchers would do well to take heed of the recommendations/advice given here!
 
