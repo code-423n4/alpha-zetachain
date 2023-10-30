@@ -1,0 +1,14 @@
+### Cryptography 
+- Cryptography is used for verifying many things. It can be used for whether or event occurred, an address approved something and much more. Having secure cryptography algorithms and using the cryptography properly is important. 
+- **Merkle proofs** can astray because of not checking if two childern existed in the verification:
+    - https://swarm.ptsecurity.com/binance-smart-chain-token-bridge-hack/
+- **Signature malleability** is the process of *changing* a signature to be reused in a way that undetected. There are many ways that malleability can cause problems, such as replay attacks, and many forms it can pop up at. 
+    - A clasic example is ECDSA:
+    - There are always two valid points on the curve on ECDSA. Ensuring that only *one* of them is valid is important. 
+    - https://github.com/kadenzipfel/smart-contract-vulnerabilities/blob/master/vulnerabilities/signature-malleability.md
+    - GoEthereum Signature malleability : https://github.com/ethereum/go-ethereum/issues/27802 
+- **Replay attacks** are when a signature or proof is sent multiple times.
+    - https://medium.com/immunefi/polygon-double-spend-bug-fix-postmortem-2m-bounty-5a1db09db7f1
+- **Siganture validity**. Just ensuring that all signatures passed in are valid and can be mapped back to the proper user. 
+- Low level math issues. Cryptography is mostly math at the end of the day. Ensuring that the algorithm is implemented securely is important. Many algorithms have subtle flaws in them that can cause major havoc is not verified. 
+    - https://neilmadden.blog/2022/04/19/psychic-signatures-in-java/
