@@ -1,0 +1,11 @@
+## Node Configurations
+- Cosmos SDK and CometBFT have a multitude of settings. It is highly customizable to the liking of both the node operator and the project itself.
+- A few examples of security sensitive settings:
+  - Minimum gas price
+  - Exposed interfaces for networking
+  - Cosmovisor Usage
+  - Maximum mempool size
+- Resources:
+  - https://docs.cosmos.network/main/user/run-node/run-node
+  - https://docs.cometbft.com/v0.37/core/configuration
+  - https://docs.cosmos.network/main/learn/advanced/config

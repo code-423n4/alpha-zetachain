@@ -1,0 +1,51 @@
+## Audits
+- Trail of bits: 
+    - Umee
+    - IBC
+    - Thorchain 
+    - Tendermint
+    - https://github.com/trailofbits/publications#tendermintcosmos
+- Halborn (company):
+    - Sifchain
+    - Umee 
+    - Supernova
+    - https://github.com/HalbornSecurity/PublicReports/tree/master/Cosmos%20Audits
+- OtterSec (company): 
+    - Vega Snap
+    - Mystic Snap
+    - Osmosis 
+    - https://ottersec.notion.site/Sampled-Public-Audit-Reports-a296e98838aa4fdb8f3b192663400772
+- Informal systems (company): 
+    - IBC go 
+    - Osmosis
+    - Axelar 
+    - evmos (ethermint) 
+    - Neutron
+    - Injective
+    - https://github.com/informalsystems/audits
+- JumpCrypto(company): 
+    - Inter-blockchain communication(IBC) error handling issues: https://jumpcrypto.com/writing/huckleberry-ibc-event-hallucinations/
+    - CosmWasm stack overflow: https://jumpcrypto.com/writing/stop-the-chain-cosmwasm-stack-overflow/
+    - Double voting on Celer: https://jumpcrypto.com/writing/election-fraud-double-voting-in-celers-state-guardian-network/
+    - Inter-blockchain communication(IBC) lack of channel verification: https://jumpcrypto.com/writing/preventing-airdrop-theft-on-stride-an-ibc-integration-vulnerability/
+    - Misunderstanding how the ante handler works to bypass gas checks: https://jumpcrypto.com/writing/bypassing-ethermint-ante-handlers/
+    - Integer overflow leads to creation of tokens: https://jumpcrypto.com/writing/helping-secure-bnb-chain-through-responsible-disclosure/
+- Oak security(company): 
+    - Cosmos SDK: https://github.com/oak-security/audit-reports/blob/master/Cosmos/2023-06-23%20Audit%20Report%20-%20Cosmos%20Interchain%20Security%20v1.0.pdfA
+    - https://github.com/oak-security/audit-reports/blob/master/Neutron/2022-12-07%20Audit%20Report%20-%20Neutron%20v1.0.pdf
+    - https://github.com/oak-security/audit-reports/blob/master/All%20in%20Bits/2022-04-04%20Audit%20Report%20-%20Budget%20and%20Farming%20Cosmos%20SDK%20Modules%20v1.0.pdf
+    - https://github.com/oak-security/audit-reports/blob/master/Interchain%20Foundation/2022-07-20%20Audit%20Report%20-%20Liquidity%20Staking%20Cosmos%20SDK%20Modules%20v1.0.pdf
+- Gravity Bridge:
+    - https://code4rena.com/reports/2021-08-gravitybridge
+    - https://leastauthority.com/static/publications/LeastAuthority_Althea_Gravity%20Bridge_Final_Audit_Report.pdf
+- Axelar network: 
+    - https://github.com/axelarnetwork/audits
+- Sifchain:
+    - https://drive.google.com/file/d/1LyZVJbc6rh_x_QZhlazTHBFl7RfD2eYY/view
+- Celer: 
+    - https://raw.githubusercontent.com/celer-network/sgn-v2-contracts/main/audit/PeckShield_pegged.pdf
+    - https://raw.githubusercontent.com/celer-network/sgn-v2-contracts/main/audit/SlowMist_pegged.pdf
+- THORCHAIN
+    - https://github.com/thorchain/Resources/blob/master/Audits/THORChain-TrailOfBits-FullAudit-Aug2021.pdf
+- Axelar networks:
+    - https://github.com/axelarnetwork/audits
