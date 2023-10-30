@@ -213,10 +213,10 @@ At this point you have a full-fledged testnet running locally.  If you’d like 
 ZetaChain is a [Cosmos SDK project](https://docs.cosmos.network/v0.50/learn/beginner/app-anatomy) at heart. That means it essentially relies on patterns of:
 
 - Composable units of functionality with handlers for updating dedicated parts of state (”[Modules](https://www.notion.so/Project-101-44d769e6aae4459d85b91ddbba34ae81?pvs=21)”)
-- Getters and Setters for each module’s state (”[Keepers](https://www.notion.so/Project-101-44d769e6aae4459d85b91ddbba34ae81?pvs=21)”)
-- Access controls for state updates (”[Stores and Object Capabilities](https://www.notion.so/Project-101-44d769e6aae4459d85b91ddbba34ae81?pvs=21)”)
-- A convention for interfacing with a consensus and networking layer through a lifecycle of events (“[CometBFT](https://www.notion.so/Project-101-44d769e6aae4459d85b91ddbba34ae81?pvs=21)”, ”[ABCI](https://www.notion.so/Project-101-44d769e6aae4459d85b91ddbba34ae81?pvs=21)”, “[Protobuf](https://www.notion.so/Project-101-44d769e6aae4459d85b91ddbba34ae81?pvs=21)”)
-- Handlers to modify state according to transaction payloads and RPC requests (”[Messages](https://www.notion.so/Project-101-44d769e6aae4459d85b91ddbba34ae81?pvs=21)”, and “[Queries](https://www.notion.so/Project-101-44d769e6aae4459d85b91ddbba34ae81?pvs=21)”)
+- Getters and Setters for each module’s state (”[Keepers](#keepers)”)
+- Access controls for state updates (”[Stores and Object Capabilities](#stores-and-object-capabilities)”)
+- A convention for interfacing with a consensus and networking layer through a lifecycle of events (“[CometBFT](#cometbft)”, ”[ABCI](#abci)”, “[Protobuf](#protobuf)”)
+- Handlers to modify state according to transaction payloads and RPC requests (”[Messages](#messages)”, and “[Queries](#queries)”)
 
 The subsequent sections describe these core concepts used within the ZetaChain architecture. 
 
