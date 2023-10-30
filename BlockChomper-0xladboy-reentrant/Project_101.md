@@ -15,7 +15,7 @@
     + [Validators, Observers and Signers](#validators--observers-and-signers)
     + [Threshold Signature Scheme - Security Considerations](#threshold-signature-scheme---security-considerations)
     + [ThorChain, SifChain and ChainFlip](#thorchain--sifchain-and-chainflip)
-* [Development Considerations for zeta-chain/node](#development-considerations-for-zeta-chain-node)
+* [Development Considerations for zeta-chain node](#development-considerations-for-zeta-chain-node)
   * [Setting up the development environment](#setting-up-the-development-environment)
   * [ZetaChain Architecture](#zetachain-architecture-1)
     + [Key Architecture Patterns](#key-architecture-patterns)
@@ -147,7 +147,7 @@ SifChain and ChainFlip also use a similar architecture to ThorChain. As such, we
 
 Potential comparisons can also be drawn between Juno (an open-source platform for interoperable smart contracts) and Evmos (”the first decentralized EVM chain on the Cosmos Network”).
 
-# Development Considerations for zeta-chain/node
+# Development Considerations for zeta-chain node
 
 This section is written to achieve the following outcomes:
 
@@ -251,7 +251,7 @@ Each module is comprised of:
 - Keepers should only ever be able to access the state through other Keepers they have references to
 - Each module defines a Keeper’s type in `x/MODULE_NAME/keeper/keeper.go`
 
-**************************Further References**************************
+**Further References**
 
 - [https://docs.cosmos.network/v0.50/build/building-modules/keeper](https://docs.cosmos.network/v0.50/build/building-modules/keeper)
 
