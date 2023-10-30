@@ -4,7 +4,7 @@
 
 ## Project 101
 
-The Project 101 primer will give an already professional and competent security researcher a guide to the ZetaChain platform, how it functions and similarities/differences to other platforms in its class. The primer will streamline on-boarding of security researchers new to or inexperienced with this technology stack. We achieve this objective by analyzing core underlying Cosmos Infrastructure used to build ZetaChain and providing a robust overview of ZetaChain’s current architecture. Furthermore, we deep dive into developer considerations for the zeta-chain/node and outline key resources to accelerate Go learning.
+The [Project 101 primer](Project_101.md) will give an already professional and competent security researcher a guide to the ZetaChain platform, how it functions and similarities/differences to other platforms in its class. The primer will streamline on-boarding of security researchers new to or inexperienced with this technology stack. We achieve this objective by analyzing core underlying Cosmos Infrastructure used to build ZetaChain and providing a robust overview of ZetaChain’s current architecture. Furthermore, we deep dive into developer considerations for the zeta-chain/node and outline key resources to accelerate Go learning.
 
 ## Testing 101
 
