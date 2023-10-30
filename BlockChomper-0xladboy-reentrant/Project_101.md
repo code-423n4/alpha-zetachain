@@ -145,7 +145,7 @@ The ZetaChain team explicity state that ThorChain is one of the key sources of i
 
 SifChain and ChainFlip also use a similar architecture to ThorChain. As such, we also recommend that security issues that have been identified in relation to these protocols and examined if applicable or relevant to ZetaChain.
 
-Potential comparisons can alos be drawn between Juno (an open-source platform for interoperable smart contracts) and Evmos (”the first decentralized EVM chain on the Cosmos Network”).
+Potential comparisons can also be drawn between Juno (an open-source platform for interoperable smart contracts) and Evmos (”the first decentralized EVM chain on the Cosmos Network”).
 
 # Development Considerations for zeta-chain/node
 
