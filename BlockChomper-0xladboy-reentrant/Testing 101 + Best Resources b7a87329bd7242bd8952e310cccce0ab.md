@@ -1,6 +1,5 @@
 # Testing 101 + Best Resources
 
-- [Testing 101 + Best Resources](#testing-101---best-resources)
   * [Introduction](#introduction)
   * [Validator Node Testing](#validator-node-testing)
     + [Guide to Unit Testing with Zeta-Chain](#guide-to-unit-testing-with-zeta-chain)
