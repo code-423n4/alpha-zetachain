@@ -15,7 +15,7 @@
     + [Validators, Observers and Signers](#validators--observers-and-signers)
     + [Threshold Signature Scheme - Security Considerations](#threshold-signature-scheme---security-considerations)
     + [ThorChain, SifChain and ChainFlip](#thorchain--sifchain-and-chainflip)
-- [Development Considerations for zeta-chain/node](#development-considerations-for-zeta-chain-node)
+* [Development Considerations for zeta-chain/node](#development-considerations-for-zeta-chain-node)
   * [Setting up the development environment](#setting-up-the-development-environment)
   * [ZetaChain Architecture](#zetachain-architecture-1)
     + [Key Architecture Patterns](#key-architecture-patterns)
@@ -48,7 +48,7 @@ Projects built in the Cosmos ecosystem have specific architectural properties an
 
 Cosmos ecosystem projects, including ZetaChain are constructed using components such as the Cosmos Software Development Kit (SDK), Tendermint Consensus Engine and the Inter-Blockchain Communication Protocol (IBC). We will describe and analyze each of these key architectural components individually, to help security researchers new to the technology understand areas of potential vulnerability.
 
-### ************************************************************Cosmos SDK, Tendermint Consensus and IBC************************************************************
+### Cosmos SDK, Tendermint Consensus and IBC
 
 Cosmos SDK is a [“framework for building blockchain applications”](https://pkg.go.dev/github.com/cosmos/cosmos-sdk) built in the Go language. The SDK is used to build build blockchains from ‘composable modules’, these modules can be seen as state-machines within the state machine. It should be noted that developers can pick and choose ‘out-of-the-box’ modules provided by the Cosmos SDK dependant on its needs. The modules that ZetaChain has utilized ‘out-of-the-box’ from the Cosmos SDK are listed below.
 
@@ -85,7 +85,7 @@ After clarification with the ZetaChain team, researchers should note that ZetaCh
 
 It is important for us to understand what specific components from the Cosmos stack are used in building ZetaChain, as Cosmos Infrastructure related vulnerabilities may be a key source of compromise for ZetaChain and indeed other Cosmos Ecosystem projects.
 
-A seminal example of a Cosmos Infrastructure related vulnerability was written up by [Maxwell Dulin](https://maxwelldulin.com/BlogPost/stdout-cosmos-sdk-rce)), an incredibly talented security researcher. In this write up, the vulnerability relates to `cosmovisor` which is described as a “small process manager for Cosmos SDK application binaries that monitors **`stdout`** for incoming chain upgrade proposals. If it sees a proposal that gets approved, cosmovisor can automatically download the new binary, ..., switch from the old binary to the new one, and finally restart the node with the new binary.” ([https://github.com/cosmos/cosmos-sdk/tree/cosmovisor/v0.1.0/cosmovisor#cosmosvisor-quick-start](https://github.com/cosmos/cosmos-sdk/tree/cosmovisor/v0.1.0/cosmovisor#cosmosvisor-quick-start)
+A seminal example of a Cosmos Infrastructure related vulnerability was written up by [Maxwell Dulin](https://maxwelldulin.com/BlogPost/stdout-cosmos-sdk-rce)), an incredibly talented security researcher. In this write up, the vulnerability relates to `cosmovisor` which is described as a “small process manager for Cosmos SDK application binaries that monitors **`stdout`** for incoming chain upgrade proposals. If it sees a proposal that gets approved, cosmovisor can automatically download the new binary, ..., switch from the old binary to the new one, and finally restart the node with the new binary.” ([https://github.com/cosmos/cosmos-sdk/tree/cosmovisor/v0.1.0/cosmovisor#cosmosvisor-quick-start](https://github.com/cosmos/cosmos-sdk/tree/cosmovisor/v0.1.0/cosmovisor#cosmosvisor-quick-start))
 
 Maxwell observed that all that would be needed to successfully exploit a protocol using `cosmovisor`, would be to write to `stdout` and the process manager would update your binary. Although we will not review the deeper techincal details of the vulnerability or methodology for the exploit, Maxwell does successfully demonstrate that a underlying issue in Cosmos Infrastructure can result in Remote Code Exploitation (RCE) or Denial of Service (DoS) scenarios. This research demonstrates that projects using Cosmos Infrastructure must carefully review their implementations and integrations with the stack.
 
@@ -95,9 +95,9 @@ Furthermore, we can also look at ways in which non-determinism can be caused in 
 
 There are other specific vulnerabilties that can arise from use of the Go programming language itself. In another article published by [Halborn Security](https://www.halborn.com/blog/post/dont-panic-how-improper-error-handling-can-lead-to-blockchain-hacks) , the author describes how use of Panics for Error Handling can lead to an attacker using the discovering a crash and then escalating into a full exploit.  Panics are a construction used in Go and Rust to handle errors. Now while this is not strictly speaking ‘Cosmos Infrastructure’ it is a consideration that previous Solidity/EVM focused security researchers would not usually consider. As such, we recommend security researchers new to ZetaChain and Cosmos explore this topic in depth so they can better understand the security implications associated with Go usage.
 
-## Z**etaChain Architecture**
+## ZetaChain Architecture
 
-### **ZetaChain Blockchain Sovereignty / Interchain Security**
+### ZetaChain Blockchain Sovereignty / Interchain Security
 
 As aforementioned, ZetaChain is a sovereign blockchain within the Cosmos Ecosystem. This means that it has its own nodes, validators and produces its own blocks. As also previously discussed, security researchers should not be confused with the interoperability aspect of the Cosmos stack using IBC, as ZetaChain uses its own bespoke architecture to achieve this use-case.
 
@@ -154,14 +154,11 @@ This section is written to achieve the following outcomes:
 1. You will have [cloned, compiled, and smoke-tested](https://www.notion.so/Project-101-44d769e6aae4459d85b91ddbba34ae81?pvs=21) the ZetaChain node (`zetacored`) to confirm the development environment is installed correctly
 2. You will have [understood the node’s code structure the descriptions of key elements](https://www.notion.so/Project-101-44d769e6aae4459d85b91ddbba34ae81?pvs=21) of the architecture
 
-<aside>
-❗ **How to use this section:**
-
-*Expect important terms and concepts to link to relevant documentation!* 
-
-While the main points shared here are contained to a 10,000ft view to get you up to speed, make sure to drill deeper by clicking the linked terms as necessary.
-
-</aside>
+> ❗ **How to use this section:**
+> 
+> *Expect important terms and concepts to link to relevant documentation!* 
+> 
+> While the main points shared here are contained to a 10,000ft view to get you up to speed, make sure to drill deeper by clicking the linked terms as necessary.
 
 ## Setting up the development environment
 
@@ -179,8 +176,12 @@ While the main points shared here are contained to a 10,000ft view to get you up
     make install-testnet
     ```
     
-    - You likely will need to [ensure your PATH includes](https://opensource.com/article/17/6/set-path-linux) `~/go/bin` for the subsequent commands to work
-4. Check that the install worked by running these commands:
+    - You likely will need to [ensure your PATH includes](https://opensource.com/article/17/6/set-path-linux) `~/go/bin` for the subsequent commands to work by adding the following line to your `.bash_profile` or `.bashrc` (for BASH):
+    ```bash
+    export PATH=$PATH:~/go/bin
+    ```
+    Make sure to restart the terminal afterwords to enable the change.
+1. Check that the install worked by running these commands:
     
     ```bash
     zetacored version
@@ -197,24 +198,15 @@ While the main points shared here are contained to a 10,000ft view to get you up
     ```
     
 
-<aside>
-❗ **It’s recommended that a smoke test is run once with the docker environment, and subsequent smoke tests are run after running the command** `make stop-smoketest`
-
-</aside>
+> ❗ **It’s recommended that a smoke test is run once with the docker environment, and subsequent smoke tests are run after running the command** `make stop-smoketest`
 
 At this point you have a full-fledged testnet running locally.  If you’d like to explore the docker setup and build/run tests, read our **Testing 101** document.
 
 ## ZetaChain Architecture
 
-<aside>
-❗ **Make sure to read the ZetaChain [Architecture Overview](https://www.zetachain.com/docs/architecture/overview/) for a 10,000ft view of how the major components fit.**
+>❗ **Make sure to read the ZetaChain [Architecture Overview](https://www.zetachain.com/docs/architecture/overview/) for a 10,000ft view of how the major components fit.**
 
-</aside>
-
-<aside>
-❗ **The ZetaChain node is written in Go.  In case readers have little exposure to the language, but are versed in others, they are encouraged to read content from [Resources for the Go language](https://www.notion.so/Resources-for-the-Go-language-91fc1a4c56b84720be19b83667722327?pvs=21)   to quickly get a up to speed on the features and syntax.**
-
-</aside>
+> ❗ **The ZetaChain node is written in Go.  In case readers have little exposure to the language, but are versed in others, they are encouraged to read content from [Resources for the Go language](https://www.notion.so/Resources-for-the-Go-language-91fc1a4c56b84720be19b83667722327?pvs=21)   to quickly get a up to speed on the features and syntax.**
 
 ### Key Architecture Patterns
 
@@ -271,10 +263,7 @@ Each module defines a store.  To provide for a sane access model in the face of 
 
 [CometBFT](https://github.com/cometbft/cometbft/tree/main/spec) is the consensus engine and application interface. It is a fork of the [Tendermint](https://docs.tendermint.com/) consensus protocol. It defines the underlying blockchain such that it is Byzantine Fault Tolerant (BFT).
 
-<aside>
-❗ **The version of CometBFT used in this project is v0.34.28. Be aware of the version of documentation you are viewing.**
-
-</aside>
+>❗ **The version of CometBFT used in this project is v0.34.28. Be aware of the version of documentation you are viewing.**
 
 - Defines ABCI methods that interface with the application, such as:
     - InitChain
@@ -291,15 +280,12 @@ Each module defines a store.  To provide for a sane access model in the face of 
 
 This is the interface between the consensus engine (Tendermin/CometBFT) and the state machine. It provides an interface which can be consumed by different programming languages.
 
-<aside>
-❗ **The version of CometBFT used in this project (v0.34.28) does not use the ABCI++ (v2.0) interface, only the previous version of ABCI. Keep aware as the two versions are similarly-named**
-
-</aside>
+>❗ **The version of CometBFT used in this project (v0.34.28) does not use the ABCI++ (v2.0) interface, only the previous version of ABCI. Keep aware as the two versions are similarly-named**
 
 - When messages and queries are received from CometBFT, the consensus engine can use the ABCI to trigger events on the app’s state machine
 - ABCI defined in the module, ex. `x/MODULE_NAME/abci.go`
 
-**************************Further References**************************
+**Further References**
 
 - Intro ABCI: [https://github.com/cometbft/cometbft/blob/v0.34.28/docs/introduction/what-is-cometbft.md#abci-overview](https://github.com/cometbft/cometbft/blob/v0.34.28/docs/introduction/what-is-cometbft.md#abci-overview)
 - CometBFT ABCI Spec: [https://github.com/cometbft/cometbft/blob/v0.34.28/spec/abci/abci.md](https://github.com/cometbft/cometbft/blob/v0.34.28/spec/abci/abci.md)
@@ -310,16 +296,9 @@ Protobuf provides a way of defining and interfacing to handlers for on-chain mes
 
 - Modules define their Protobuf definitions in `proto/MODULE_NAME/TYPE.proto`
 
-<aside>
-❗ I**f you update any of the `.proto` files, you must regenerate the resulting `Msg` and `gRPC` services with:**
+>❗ **If you update any of the `.proto` files, you must regenerate the resulting `Msg` and `gRPC` services with `make proto`**
 
-```
-make proto
-```
-
-</aside>
-
-**************************Further Links**************************
+**Further Links**
 
 - Protocol Buffers in 2 Minutes: [https://medium.com/nerd-for-tech/protocol-buffers-in-two-minutes-6b8f908efe5](https://medium.com/nerd-for-tech/protocol-buffers-in-two-minutes-6b8f908efe5)
 - Protobuf documention: [https://protobuf.dev/](https://protobuf.dev/)
