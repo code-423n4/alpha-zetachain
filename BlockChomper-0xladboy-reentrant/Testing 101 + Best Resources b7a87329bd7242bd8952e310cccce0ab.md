@@ -1,5 +1,7 @@
 # Testing 101 + Best Resources
 
+## Table of Contents
+
   * [Introduction](#introduction)
   * [Validator Node Testing](#validator-node-testing)
     + [Guide to Unit Testing with Zeta-Chain](#guide-to-unit-testing-with-zeta-chain)
