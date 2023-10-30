@@ -14,4 +14,4 @@ This Alpha content is crafted one of the top security researchers active in Code
 
 ## Collection & Classes of Vulnerabilities
 
-In Project 101 and Testing 101 we discussed similarities, differences and architectural considerations that should be incorporated when conducting a security review of ZetaChain and/or other Cosmos ecosystem projects. In this section, we will talk about specific vulnerabilities and audit findings that have been reported in relation to ZetaChain and Cosmos projects. Furthermore, we will assign these vulnerabilities into classes where appropriate.
+In Project 101 and Testing 101 we discussed similarities, differences and architectural considerations that should be incorporated when conducting a security review of ZetaChain and/or other Cosmos ecosystem projects. [In this section](Collection_&_Classes_of_Vulnerabilitiesc.md), we will talk about specific vulnerabilities and audit findings that have been reported in relation to ZetaChain and Cosmos projects. Furthermore, we will assign these vulnerabilities into classes where appropriate.
