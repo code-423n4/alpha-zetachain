@@ -232,10 +232,10 @@ Modules are state machines, combined with the data they store, and methods for u
 Each module is comprised of:
 
 1. [Module interface](https://docs.cosmos.network/main/learn/beginner/app-anatomy#application-module-interface) and implementation methods
-2. `[Msg` services](https://docs.cosmos.network/main/learn/beginner/app-anatomy#msg-services)
+2. [`Msg` services](https://docs.cosmos.network/main/learn/beginner/app-anatomy#msg-services)
     - These handle messages w/ service methods defined in Protobuf files
     - These services use their module’s Keeper to update module state
-3. `[gRPC` services](https://docs.cosmos.network/main/learn/beginner/app-anatomy#grpc-query-services)
+3. [`gRPC` services](https://docs.cosmos.network/main/learn/beginner/app-anatomy#grpc-query-services)
     - These provide an external interface to retrieve app state from [RPC calls](https://docs.cosmos.network/v0.50/learn/advanced/grpc_rest)
     - handle RPC calls with service methods defined in Protobuf files
 4. A [Keeper](https://www.notion.so/Project-101-44d769e6aae4459d85b91ddbba34ae81?pvs=21), which provides getters/setters for module state
